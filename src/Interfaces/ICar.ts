@@ -6,5 +6,5 @@ export default interface ICar {
   status?: boolean | false, 
   buyValue:number, 
   doorsQty:number, 
-  seatsQty:number, 
+  seatsQty:number
 }
