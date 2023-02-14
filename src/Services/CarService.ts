@@ -1,4 +1,3 @@
-import { isValidObjectId } from 'mongoose';
 import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
 import CarDomains from '../Domains/Car';
@@ -27,7 +26,6 @@ export default class CarService {
   }
 
   public async findById(id: string) {
-    if (!isValidObjectId(id)) return undefined;
     const cars = await this._CarODM.findById(id);
     return this.createcarDomain(cars[0]);
   }
