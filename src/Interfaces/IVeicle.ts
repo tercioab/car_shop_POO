@@ -1,5 +1,5 @@
 export default interface IVeicle {
-  id: string,
+  id?: string,
   model: string,
   year: number,
   color: string,

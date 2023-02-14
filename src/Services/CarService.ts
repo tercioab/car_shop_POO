@@ -1,6 +1,6 @@
 import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
-import CarDomains from '../Domains/CarDomains';
+import CarDomains from '../Domains/Car';
 
 export default class CarService {
   private createcarDomain(car: ICar | null) {

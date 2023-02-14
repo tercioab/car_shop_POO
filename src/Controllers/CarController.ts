@@ -3,26 +3,26 @@ import ICar from '../Interfaces/ICar';
 import CarService from '../Services/CarService';
 
 export default class CarController {
-  private req: Request;
-  private res: Response;
-  private next: NextFunction;
-  private service: CarService;
+  private _req: Request;
+  private _res: Response;
+  private _next: NextFunction;
+  private _service: CarService;
 
   constructor(req: Request, res: Response, next: NextFunction) {
-    this.req = req;
-    this.res = res;
-    this.next = next;
-    this.service = new CarService();
+    this._req = req;
+    this._res = res;
+    this._next = next;
+    this._service = new CarService();
   }
 
   public async create() {
-    const car: ICar = this.req.body;
+    const car: ICar = this._req.body;
 
     try {
-      const newCar = await this.service.create(car);
-      return this.res.status(201).json(newCar);
+      const newCar = await this._service.create(car);
+      return this._res.status(201).json(newCar);
     } catch (e) {
-      this.next(e);
+      this._next(e);
     }
   }
 }
