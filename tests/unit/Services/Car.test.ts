@@ -32,4 +32,22 @@ describe('teste car service', function () {
     const result = await carService.create(carInput);
     expect(result).to.be.deep.equal(carOutPut);
   });
+    
+  it('testa se é possivel retornar todos os carros', async function () {
+    const carOutPut: CarDomain = new CarDomain({
+      id: '63ec05e33484f70f15bce3b4',
+      model: 'rari',
+      year: 2002,
+      color: 'Black',
+      status: true,
+      buyValue: 15.99,
+      doorsQty: 4,
+      seatsQty: 5,
+    });
+            
+    sinon.stub(Model, 'find').resolves([carOutPut]);
+    const carService = new CarService();
+    const result = await carService.findAll();
+    expect(result).to.be.deep.equal([carOutPut]);
+  });
 });

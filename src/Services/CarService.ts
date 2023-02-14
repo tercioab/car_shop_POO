@@ -22,6 +22,7 @@ export default class CarService {
 
   public async findAll() {
     const allCars = await this._CarODM.findAll();
+    console.log(allCars, '<<<<<<<<<');
     return allCars.map((cars) => this.createcarDomain(cars));
   }
 
