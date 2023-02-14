@@ -1,10 +1,5 @@
-export default interface ICar {
-  id: string,
-  model: string,
-  year: number,
-  color: string,
-  status?: boolean | false, 
-  buyValue:number, 
+import IVeicle from './IVeicle';
+
+export default interface ICar extends IVeicle {
   doorsQty:number, 
-  seatsQty:number
 }

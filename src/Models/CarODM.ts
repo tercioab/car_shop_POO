@@ -23,7 +23,11 @@ export default class CarODM {
     return this._model.create({ ...car });
   }
 
-  public async find(): Promise<ICar[]> {
+  public async find(): Promise<ICar[ ]> {
     return this._model.find({});
   }
+
+  // public async update(id: string, entity: Partial<ICar>) {
+    
+  // }
 }   
