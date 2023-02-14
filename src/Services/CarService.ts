@@ -1,8 +1,14 @@
+import { isValidObjectId } from 'mongoose';
 import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
 import CarDomains from '../Domains/Car';
 
 export default class CarService {
+  private _CarODM: CarODM;
+  constructor() {
+    this._CarODM = new CarODM();
+  }
+  
   private createcarDomain(car: ICar | null) {
     if (car) {
       return new CarDomains(car);
@@ -11,8 +17,18 @@ export default class CarService {
   }
     
   public async create(car: ICar) {
-    const carODM = new CarODM();
-    const newCar = await carODM.create(car);
+    const newCar = await this._CarODM.create(car);
     return this.createcarDomain(newCar);
+  }
+
+  public async findAll() {
+    const allCars = await this._CarODM.findAll();
+    return allCars.map((cars) => this.createcarDomain(cars));
+  }
+
+  public async findById(id: string) {
+    if (!isValidObjectId(id)) return undefined;
+    const cars = await this._CarODM.findById(id);
+    return this.createcarDomain(cars[0]);
   }
 }
