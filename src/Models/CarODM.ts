@@ -22,4 +22,4 @@ export default class CarODM {
   public async create(car: ICar): Promise<ICar> {
     return this._model.create({ ...car });
   }
-}
+}   
