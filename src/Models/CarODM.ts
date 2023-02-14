@@ -16,10 +16,14 @@ export default class CarODM {
       doorsQty: { type: Number, required: true },
       seatsQty: { type: Number, required: true },
     });
-    this._model = models.Car || model('Car', this._schema);
+    this._model = models.Car || model('Cars', this._schema);
   }
     
   public async create(car: ICar): Promise<ICar> {
     return this._model.create({ ...car });
+  }
+
+  public async find(): Promise<ICar[]> {
+    return this._model.find({});
   }
 }   
