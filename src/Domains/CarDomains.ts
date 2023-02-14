@@ -1,7 +1,7 @@
 import ICar from '../Interfaces/ICar';
 
 export default class CarDomains { 
-  private _id: string;
+  private _id: string | undefined;
   private _model: string;
   private _year: number;
   private _color: string;
@@ -15,7 +15,7 @@ export default class CarDomains {
     this._model = car.model;
     this._year = car.year;
     this._color = car.color;
-    this._status = car.status; 
+    this._status = car.status || false;
     this._buyValue = car.buyValue;
     this._doorsQty = car.doorsQty;
     this._seatsQty = car.seatsQty;

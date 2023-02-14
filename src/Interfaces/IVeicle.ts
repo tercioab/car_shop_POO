@@ -3,7 +3,6 @@ export default interface IVeicle {
   model: string,
   year: number,
   color: string,
-  status?: boolean | false, 
+  status?: boolean, 
   buyValue:number, 
-  seatsQty:number
 }

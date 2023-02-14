@@ -1,5 +1,6 @@
 import IVeicle from './IVeicle';
 
 export default interface ICar extends IVeicle {
-  doorsQty:number, 
+  doorsQty: number, 
+  seatsQty:number
 }
