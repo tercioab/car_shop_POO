@@ -49,4 +49,15 @@ export default class MotocicleController {
       this._next(e);
     }
   }
+
+  public async updateById() {
+    const { id } = this._req.params;
+    const MotorcycleSearch = await this._service.findById(id);
+    if (!MotorcycleSearch) {
+      return this._res.status(404).json({ message: 'Motorcycle not found' });
+    }
+    const { body } = this._req;
+    const Motorcycle = await this._service.updateById(id, body);
+    return this._res.status(200).json(Motorcycle);
+  }
 }

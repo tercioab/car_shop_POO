@@ -13,4 +13,11 @@ router.get(
   validateId,
   (res, req, next) => new MotocicleController(res, req, next).findById(),
 );
+
+router.put(
+  '/:id',
+  validateId,
+  (req, res, next) => new MotocicleController(req, res, next).updateById(),
+);
+
 export default router;
