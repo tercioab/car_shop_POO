@@ -24,4 +24,9 @@ export default class MotocicleService {
     const allMotocicles = await this._MotocicleODM.findAll();
     return allMotocicles.map((motocicles) => this.createMotocicleDomain(motocicles));
   }
+
+  public async findById(id: string) {
+    const Motorcycle = await this._MotocicleODM.findById(id);
+    return this.createMotocicleDomain(Motorcycle[0]);
+  }
 }
