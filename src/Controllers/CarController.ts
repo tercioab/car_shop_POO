@@ -49,4 +49,15 @@ export default class CarController {
       this._next(e);
     }
   }
+
+  public async updateById() {
+    const { id } = this._req.params;
+    const carSearch = await this._service.findById(id);
+    if (!carSearch) {
+      return this._res.status(404).json({ message: 'Car not found' });
+    }
+    const { body } = this._req;
+    const car = await this._service.updateById(id, body);
+    return this._res.status(200).json(car);
+  }
 }
