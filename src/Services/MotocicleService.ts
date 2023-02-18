@@ -22,7 +22,7 @@ export default class MotocicleService {
 
   public async findById(id: string) {
     const Motorcycle = await this._MotocicleODM.findById(id);
-    return new VehicleUtils(MotocicleDomais, Motorcycle[0]).createVehicleDomain();
+    return new VehicleUtils(MotocicleDomais, Motorcycle).createVehicleDomain();
   }
 
   public async updateById(id: string, veicle: IMotorcycle) {
