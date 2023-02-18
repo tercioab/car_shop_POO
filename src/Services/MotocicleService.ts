@@ -10,22 +10,23 @@ export default class MotocicleService {
   }
     
   public async create(car: IMotorcycle) {
-    const newCar = await this._MotocicleODM.create(car);
-    return new VehicleUtils(MotocicleDomais, newCar).createVehicleDomain();
+    const newMotorcycle = await this._MotocicleODM.create(car);
+    return new VehicleUtils(MotocicleDomais, newMotorcycle).createVehicleDomain();
   }
 
   public async findAll() {
-    const allCars = await this._MotocicleODM.findAll();
-    return allCars.map((cars) => new VehicleUtils(MotocicleDomais, cars).createVehicleDomain());
+    const allMotorcycle = await this._MotocicleODM.findAll();
+    return allMotorcycle
+      .map((Motorcycle) => new VehicleUtils(MotocicleDomais, Motorcycle).createVehicleDomain());
   }
 
   public async findById(id: string) {
-    const cars = await this._MotocicleODM.findById(id);
-    return new VehicleUtils(MotocicleDomais, cars[0]).createVehicleDomain();
+    const Motorcycle = await this._MotocicleODM.findById(id);
+    return new VehicleUtils(MotocicleDomais, Motorcycle[0]).createVehicleDomain();
   }
 
   public async updateById(id: string, veicle: IMotorcycle) {
-    const car = await this._MotocicleODM.updateById(id, veicle);
-    return new VehicleUtils(MotocicleDomais, car).createVehicleDomain();
+    const motorcycle = await this._MotocicleODM.updateById(id, veicle);
+    return new VehicleUtils(MotocicleDomais, motorcycle).createVehicleDomain();
   }
 }
