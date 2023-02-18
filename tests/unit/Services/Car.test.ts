@@ -98,4 +98,12 @@ describe('teste car service', function () {
     const result = await carService.updateById(id, carInput);
     expect(result).to.be.deep.equal(carOutPut);
   });
+  
+  it('testa se é possivel excluir um carro pelo id', async function () {
+    const id = '63ec05e33484f70f15bce3b4';
+    sinon.stub(Model, 'deleteOne').resolves({ acknowledged: true, deletedCount: 1 });
+    const carService = new CarService();
+    const result = await carService.excludeById(id);
+    expect(result).to.be.deep.equal({ acknowledged: true, deletedCount: 1 });
+  });
 });
