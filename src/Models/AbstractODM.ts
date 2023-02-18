@@ -20,7 +20,7 @@ export default abstract class AbstractODM<T> {
   }
 
   public async findById(id: string) {
-    return this._model.find({ _id: id });
+    return this._model.findById(id);
   } 
   
   public async updateById(id: string, veicle: Partial<T>) {
