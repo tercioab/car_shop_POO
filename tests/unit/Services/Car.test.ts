@@ -18,8 +18,7 @@ describe('teste car service', function () {
     
   it('testa se é possivel retornar todos os carros', async function () {
     sinon.stub(Model, 'find').resolves([carMocks.carOutPut]);
-    const carService = new CarService();
-    const result = await carService.findAll();
+    const result = await new CarService().findAll();
     expect(result).to.be.deep.equal([carMocks.carOutPut]);
   });
 

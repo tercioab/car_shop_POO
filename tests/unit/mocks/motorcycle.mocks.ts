@@ -1,6 +1,6 @@
 import MotorcycleDomain from '../../../src/Domains/Motorcycle';
 
-const MotorcycleInput = {
+const Input = {
   model: 'Honda Cb 600f Hornet',
   year: 2005,
   color: 'Yellow',
@@ -10,7 +10,7 @@ const MotorcycleInput = {
   engineCapacity: 600,
 };
 
-const MotorcycleOutPut: MotorcycleDomain = new MotorcycleDomain({
+const OutPut: MotorcycleDomain = new MotorcycleDomain({
   id: '6348513f34c397abcad040b2',
   model: 'Honda Cb 600f Hornet',
   year: 2005,
@@ -21,4 +21,4 @@ const MotorcycleOutPut: MotorcycleDomain = new MotorcycleDomain({
   engineCapacity: 600,
 });
 
-export default { MotorcycleInput, MotorcycleOutPut };
+export default { Input, OutPut };
