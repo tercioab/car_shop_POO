@@ -29,4 +29,8 @@ export default class MotocicleService {
     const motorcycle = await this._MotocicleODM.updateById(id, veicle);
     return new VehicleUtils(MotocicleDomais, motorcycle).createVehicleDomain();
   }
+
+  public async excludeById(id: string) {
+    return this._MotocicleODM.excludeById(id);
+  }
 }

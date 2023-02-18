@@ -20,4 +20,9 @@ router.put(
   (req, res, next) => new MotocicleController(req, res, next).updateById(),
 );
 
+router.delete(
+  '/:id',
+  validateId,
+  (req, res, next) => new MotocicleController(req, res, next).excludeById(),
+);
 export default router;
