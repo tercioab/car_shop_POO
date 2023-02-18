@@ -1,4 +1,4 @@
-import IMotocile from '../Interfaces/IMotorcycle';
+import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotocicleODM from '../Models/MotocicleODM';
 import MotocicleDomais from '../Domains/Motorcycle';
 
@@ -8,14 +8,14 @@ export default class MotocicleService {
     this._MotocicleODM = new MotocicleODM();
   }
     
-  private createMotocicleDomain(motocicle: IMotocile | null) {
+  private createMotocicleDomain(motocicle: IMotorcycle | null) {
     if (motocicle) {
       return new MotocicleDomais(motocicle);
     }
     return null;
   }
     
-  public async create(motocicle: IMotocile) {
+  public async create(motocicle:IMotorcycle) {
     const newMotocicle = await this._MotocicleODM.create(motocicle);
     return this.createMotocicleDomain(newMotocicle);
   }
@@ -30,7 +30,7 @@ export default class MotocicleService {
     return this.createMotocicleDomain(Motorcycle[0]);
   }
 
-  public async updateById(id: string, veicle: IMotocile) {
+  public async updateById(id: string, veicle: IMotorcycle) {
     const Motorcycle = await this._MotocicleODM.updateById(id, veicle);
     return this.createMotocicleDomain(Motorcycle);
   }

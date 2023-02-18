@@ -1,37 +1,31 @@
 import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
 import CarDomains from '../Domains/Car';
+import VehicleUtils from '../utils/VehicleUtils';
 
 export default class CarService {
   private _CarODM: CarODM;
   constructor() {
     this._CarODM = new CarODM();
   }
-  
-  private createcarDomain(car: ICar | null) {
-    if (car) {
-      return new CarDomains(car);
-    }
-    return null;
-  }
     
   public async create(car: ICar) {
     const newCar = await this._CarODM.create(car);
-    return this.createcarDomain(newCar);
+    return new VehicleUtils(CarDomains, newCar).createVehicleDomain();
   }
 
   public async findAll() {
     const allCars = await this._CarODM.findAll();
-    return allCars.map((cars) => this.createcarDomain(cars));
+    return allCars.map((cars) => new VehicleUtils(CarDomains, cars).createVehicleDomain());
   }
 
   public async findById(id: string) {
     const cars = await this._CarODM.findById(id);
-    return this.createcarDomain(cars[0]);
+    return new VehicleUtils(CarDomains, cars[0]).createVehicleDomain();
   }
 
   public async updateById(id: string, veicle: ICar) {
     const car = await this._CarODM.updateById(id, veicle);
-    return this.createcarDomain(car);
+    return new VehicleUtils(CarDomains, car).createVehicleDomain();
   }
 }
