@@ -1,6 +1,7 @@
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotocicleODM from '../Models/MotocicleODM';
 import MotocicleDomais from '../Domains/Motorcycle';
+import VehicleUtils from '../utils/VehicleUtils';
 
 export default class MotocicleService {
   private _MotocicleODM: MotocicleODM;
@@ -8,30 +9,23 @@ export default class MotocicleService {
     this._MotocicleODM = new MotocicleODM();
   }
     
-  private createMotocicleDomain(motocicle: IMotorcycle | null) {
-    if (motocicle) {
-      return new MotocicleDomais(motocicle);
-    }
-    return null;
+  public async create(car: IMotorcycle) {
+    const newCar = await this._MotocicleODM.create(car);
+    return new VehicleUtils(MotocicleDomais, newCar).createVehicleDomain();
   }
-    
-  public async create(motocicle:IMotorcycle) {
-    const newMotocicle = await this._MotocicleODM.create(motocicle);
-    return this.createMotocicleDomain(newMotocicle);
-  }
-    
+
   public async findAll() {
-    const allMotocicles = await this._MotocicleODM.findAll();
-    return allMotocicles.map((motocicles) => this.createMotocicleDomain(motocicles));
+    const allCars = await this._MotocicleODM.findAll();
+    return allCars.map((cars) => new VehicleUtils(MotocicleDomais, cars).createVehicleDomain());
   }
 
   public async findById(id: string) {
-    const Motorcycle = await this._MotocicleODM.findById(id);
-    return this.createMotocicleDomain(Motorcycle[0]);
+    const cars = await this._MotocicleODM.findById(id);
+    return new VehicleUtils(MotocicleDomais, cars[0]).createVehicleDomain();
   }
 
   public async updateById(id: string, veicle: IMotorcycle) {
-    const Motorcycle = await this._MotocicleODM.updateById(id, veicle);
-    return this.createMotocicleDomain(Motorcycle);
+    const car = await this._MotocicleODM.updateById(id, veicle);
+    return new VehicleUtils(MotocicleDomais, car).createVehicleDomain();
   }
 }
