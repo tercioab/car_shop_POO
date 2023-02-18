@@ -7,8 +7,6 @@ export default function validateId(
   next: NextFunction,
 ) {
   const { id } = req.params;
-
   if (!isValidObjectId(id)) return res.status(422).json({ message: 'Invalid mongo id' });
-    
   next();
 }

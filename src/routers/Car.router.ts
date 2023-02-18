@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import CarController from '../Controllers/CarController';
 import validateId from '../middlewares/id.validate';
+import ValidateCar from '../middlewares/car.validate';
 
 const router = Router();
 
@@ -11,10 +12,25 @@ router.post(
 
 router.get('/', (res, req, next) => new CarController(res, req, next).findAll());
 
-router.get('/:id', validateId, (res, req, next) => new CarController(res, req, next).findById());
+router.get(
+  '/:id', 
+  validateId, 
+  ValidateCar,
+  (res, req, next) => new CarController(res, req, next).findById(),
+);
 
-router.put('/:id', validateId, (req, res, next) => new CarController(req, res, next).updateById());
+router.put(
+  '/:id',
+  validateId,
+  ValidateCar,
+  (req, res, next) => new CarController(req, res, next).updateById(),
+);
 
 router
-  .delete('/:id', validateId, (req, res, next) => new CarController(req, res, next).excludeById());
+  .delete(
+    '/:id',
+    validateId,
+    ValidateCar,
+    (req, res, next) => new CarController(req, res, next).excludeById(),
+  );
 export default router;
