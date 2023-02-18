@@ -13,9 +13,8 @@ export default class VehicleGenerateDomains {
   }
     
   public createVehicleDomain() {
-    const vehicle = this.Vehicle;
-    if (vehicle) {
-      return new this._VehicleDomains(vehicle);
+    if (this.Vehicle) {
+      return new this._VehicleDomains(this.Vehicle);
     }
   }
 }
