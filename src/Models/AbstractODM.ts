@@ -30,4 +30,8 @@ export default abstract class AbstractODM<T> {
       { new: true },
     );
   }
+
+  public async excludeById(id: string) {
+    return this._model.deleteOne({ id });
+  }
 }

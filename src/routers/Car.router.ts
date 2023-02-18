@@ -15,4 +15,6 @@ router.get('/:id', validateId, (res, req, next) => new CarController(res, req, n
 
 router.put('/:id', validateId, (req, res, next) => new CarController(req, res, next).updateById());
 
+router
+  .delete('/:id', validateId, (req, res, next) => new CarController(req, res, next).excludeById());
 export default router;

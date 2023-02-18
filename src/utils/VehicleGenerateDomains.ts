@@ -1,7 +1,7 @@
 import VehicleDomains from '../Domains/Vehicle';
 import IVehicle from '../Interfaces/IVehicle';
 
-export default class VehicleUtils {
+export default class VehicleGenerateDomains {
   private _VehicleDomains: typeof VehicleDomains; 
   private Vehicle: IVehicle | null;
   constructor(

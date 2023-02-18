@@ -1,7 +1,7 @@
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotocicleODM from '../Models/MotocicleODM';
 import MotocicleDomais from '../Domains/Motorcycle';
-import VehicleUtils from '../utils/VehicleUtils';
+import VehicleUtils from '../utils/VehicleGenerateDomains';
 
 export default class MotocicleService {
   private _MotocicleODM: MotocicleODM;
