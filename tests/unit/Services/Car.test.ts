@@ -5,6 +5,10 @@ import CarService from '../../../src/Services/CarService';
 import carMocks from '../mocks/car.mocks';
 
 describe('teste car service', function () {
+  afterEach(function () {
+    sinon.restore();
+  });
+
   it('testa se é possivel inserir um novo carro', async function () {
     sinon.stub(Model, 'create').resolves(carMocks.carOutPut);
     const carService = new CarService();
@@ -18,12 +22,11 @@ describe('teste car service', function () {
     const result = await carService.findAll();
     expect(result).to.be.deep.equal([carMocks.carOutPut]);
   });
-    
+
   it('testa se é possivel retornar o carro pelo id', async function () {
     const id = '63ec05e33484f70f15bce3b4'; 
     sinon.stub(Model, 'findById').resolves(carMocks.carOutPut);
-    const carService = new CarService();
-    const result = await carService.findById(id);
+    const result = await new CarService().findById(id);
     expect(result).to.be.deep.equal(carMocks.carOutPut);
   });
 
