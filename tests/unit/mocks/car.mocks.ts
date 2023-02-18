@@ -1,6 +1,6 @@
 import CarDomain from '../../../src/Domains/Car';
 
-const carInput = {
+const Input = {
   model: 'rari',
   year: 2002,
   color: 'Black',
@@ -10,7 +10,7 @@ const carInput = {
   seatsQty: 5,
 }; 
 
-const carOutPut: CarDomain = new CarDomain({
+const OutPut: CarDomain = new CarDomain({
   id: '63ec05e33484f70f15bce3b4',
   model: 'rari',
   year: 2002,
@@ -21,4 +21,4 @@ const carOutPut: CarDomain = new CarDomain({
   seatsQty: 5,
 });
 
-export default { carInput, carOutPut };
+export default { Input, OutPut };

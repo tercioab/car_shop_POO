@@ -8,18 +8,19 @@ describe('teste motorcycle service', function () {
   afterEach(function () {
     sinon.restore();
   });
+
   it('01. testa se é possivel inserir uma nova moto', async function () {
     sinon.stub(Model, 'create').resolves(motorcycleMocks.OutPut);
-    const motorcycleService = new MotocicleService();
-    const result = await motorcycleService.create(motorcycleMocks.Input);
+    const result = await new MotocicleService().create(motorcycleMocks.Input);
     expect(result).to.be.deep.equal(motorcycleMocks.OutPut);
   });
-  
+
   it('02. testa se é possivel retornar todas as motos', async function () {
     sinon.stub(Model, 'find').resolves([motorcycleMocks.OutPut]);
     const result = await new MotocicleService().findAll();
     expect(result).to.be.deep.equal([motorcycleMocks.OutPut]);
   });
+
   it('03. testa se é possivel retornar o motos pelo id', async function () {
     const id = '6348513f34c397abcad040b2'; 
     sinon.stub(Model, 'findById').resolves(motorcycleMocks.OutPut);

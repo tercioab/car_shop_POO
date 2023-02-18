@@ -8,30 +8,31 @@ describe('teste car service', function () {
   afterEach(function () {
     sinon.restore();
   });
+  
   it('01. testa se é possivel inserir um novo carro', async function () {
-    sinon.stub(Model, 'create').resolves(carMocks.carOutPut);
-    const result = await new CarService().create(carMocks.carInput);
-    expect(result).to.be.deep.equal(carMocks.carOutPut);
+    sinon.stub(Model, 'create').resolves(carMocks.OutPut);
+    const result = await new CarService().create(carMocks.Input);
+    expect(result).to.be.deep.equal(carMocks.OutPut);
   });
     
   it('02. testa se é possivel retornar todos os carros', async function () {
-    sinon.stub(Model, 'find').resolves([carMocks.carOutPut]);
+    sinon.stub(Model, 'find').resolves([carMocks.OutPut]);
     const result = await new CarService().findAll();
-    expect(result).to.be.deep.equal([carMocks.carOutPut]);
+    expect(result).to.be.deep.equal([carMocks.OutPut]);
   });
 
   it('03. testa se é possivel retornar o carro pelo id', async function () {
     const id = '63ec05e33484f70f15bce3b4'; 
-    sinon.stub(Model, 'findById').resolves(carMocks.carOutPut);
+    sinon.stub(Model, 'findById').resolves(carMocks.OutPut);
     const result = await new CarService().findById(id);
-    expect(result).to.be.deep.equal(carMocks.carOutPut);
+    expect(result).to.be.deep.equal(carMocks.OutPut);
   });
 
   it('04. testa se é possivel atualizar um carro pelo id', async function () {
     const id = '63ec05e33484f70f15bce3b4';
-    sinon.stub(Model, 'findByIdAndUpdate').resolves(carMocks.carOutPut);
-    const result = await new CarService().updateById(id, carMocks.carInput);
-    expect(result).to.be.deep.equal(carMocks.carOutPut);
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(carMocks.OutPut);
+    const result = await new CarService().updateById(id, carMocks.Input);
+    expect(result).to.be.deep.equal(carMocks.OutPut);
   });
   
   it('05. testa se é possivel excluir um carro pelo id', async function () {
