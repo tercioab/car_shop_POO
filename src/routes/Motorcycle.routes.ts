@@ -1,32 +1,31 @@
 import { Router } from 'express';
-import MotorcycleController from '../Controllers/motorcycle.Controller';
 import validateId from '../middlewares/id.validate';
 import ValidateMotorcycle from '../middlewares/Motorcycle.validate';
+import motorcycleController from '../Domains/factories/motorcycle.factiores';
 
 const router = Router();
 
-router.post('/', (res, req, next) => new MotorcycleController(res, req, next).create());
-
-router.get('/', (res, req, next) => new MotorcycleController(res, req, next).findAll());
+router.post('/', (res, req, next) => motorcycleController.create(res, req, next));
+router.get('/', (res, req, next) => motorcycleController.findAll(res, req, next));
 
 router.get(
   '/:id', 
   validateId,
   ValidateMotorcycle,
-  (res, req, next) => new MotorcycleController(res, req, next).findById(),
+  (res, req, next) => motorcycleController.findById(res, req, next),
 );
 
 router.put(
   '/:id',
   validateId,
   ValidateMotorcycle,
-  (req, res, next) => new MotorcycleController(req, res, next).updateById(),
+  (res, req) => motorcycleController.updateById(res, req),
 );
 
 router.delete(
   '/:id',
   validateId,
   ValidateMotorcycle,
-  (req, res, next) => new MotorcycleController(req, res, next).excludeById(),
+  (res, req) => motorcycleController.excludeById(res, req),
 );
 export default router;

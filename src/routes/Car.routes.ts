@@ -1,15 +1,9 @@
 import { Router } from 'express';
-import CarController from '../Controllers/Car.controller';
 import validateId from '../middlewares/id.validate';
 import ValidateCar from '../middlewares/car.validate';
-import CarService from '../Services/car.Service';
-import CarODM from '../Models/CarODM';
+import carController from '../Domains/factories/car.factories';
 
 const router = Router();
-
-const carODM = new CarODM();
-const carService = new CarService(carODM);
-const carController = new CarController(carService);
 
 router.post(
   '/',
