@@ -3,10 +3,7 @@ import MotorcycleODM from '../Models/MotorcycleODM';
 import MotorcycleDomains from '../Domains/Motorcycle';
 
 export default class MotorcycleService {
-  private _MotorcycleODM: MotorcycleODM;
-  constructor() {
-    this._MotorcycleODM = new MotorcycleODM();
-  }
+  constructor(private _MotorcycleODM = new MotorcycleODM()) {}
 
   public createVehicleDomain(motorcycle: IMotorcycle) {
     if (motorcycle) {

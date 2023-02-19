@@ -3,11 +3,7 @@ import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
 
 export default class CarService {
-  private _carODM : CarODM;
-  constructor() {
-    this._carODM = new CarODM();
-  }
-
+  constructor(private _carODM = new CarODM()) {}
   public createVehicleDomain(car: ICar) {
     if (car) {
       return new CarDomains(car);
