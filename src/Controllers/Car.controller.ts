@@ -1,62 +1,53 @@
 import { Request, Response, NextFunction } from 'express';
-import ICar from '../Interfaces/ICar';
 import CarService from '../Services/car.Service';
 
 export default class CarController {
-  private _req: Request;
-  private _res: Response;
-  private _next: NextFunction;
-  private _service: CarService;
   ERROR_MESSAGE: string;
 
-  constructor(req: Request, res: Response, next: NextFunction) {
-    this._req = req;
-    this._res = res;
-    this._next = next;
-    this._service = new CarService();
+  constructor(private service: CarService) {
     this.ERROR_MESSAGE = 'Car not found';
   }
 
-  public async create() {
-    const car: ICar = this._req.body;
+  public async create(req: Request, res: Response, next: NextFunction) {
+    const car = req.body;
 
     try {
-      const newCar = await this._service.create(car);
-      return this._res.status(201).json(newCar);
+      const newCar = await this.service.create(car);
+      return res.status(201).json(newCar);
     } catch (e) {
-      this._next(e);
+      next(e);
     }
   }
 
-  public async findAll() {
+  public async findAll(req: Request, res: Response, next: NextFunction) {
     try {
-      const allCars = await this._service.findAll();
-      return this._res.status(200).json(allCars);
+      const allCars = await this.service.findAll();
+      return res.status(200).json(allCars);
     } catch (e) {
-      this._next(e);
+      next(e);
     }
   }
 
-  public async findById() {
+  public async findById(req: Request, res: Response, next: NextFunction) {
     try {
-      const { id } = this._req.params;
-      const car = await this._service.findById(id);
-      return this._res.status(200).json(car);
+      const { id } = req.params;
+      const car = await this.service.findById(id);
+      return res.status(200).json(car);
     } catch (e) {
-      this._next(e);
+      next(e);
     }
   }
 
-  public async updateById() {
-    const { id } = this._req.params;
-    const { body } = this._req;
-    const car = await this._service.updateById(id, body);
-    return this._res.status(200).json(car);
+  public async updateById(req: Request, res: Response) {
+    const { id } = req.params;
+    const { body } = req;
+    const car = await this.service.updateById(id, body);
+    return res.status(200).json(car);
   }
 
-  public async excludeById() {
-    const { id } = this._req.params;
-    await this._service.excludeById(id);
-    return this._res.sendStatus(204);
+  public async excludeById(req: Request, res: Response) {
+    const { id } = req.params;
+    await this.service.excludeById(id);
+    return res.sendStatus(204);
   }
 }

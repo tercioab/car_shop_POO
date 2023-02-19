@@ -2,28 +2,32 @@ import { Router } from 'express';
 import CarController from '../Controllers/Car.controller';
 import validateId from '../middlewares/id.validate';
 import ValidateCar from '../middlewares/car.validate';
+import CarService from '../Services/car.Service';
 
 const router = Router();
 
+const carService = new CarService();
+const carController = new CarController(carService);
+
 router.post(
   '/',
-  (res, req, next) => new CarController(res, req, next).create(),
+  (req, res, next) => carController.create(req, res, next),
 );
 
-router.get('/', (res, req, next) => new CarController(res, req, next).findAll());
+router.get('/', (req, res, next) => carController.findAll(req, res, next));
 
 router.get(
   '/:id', 
   validateId, 
   ValidateCar,
-  (res, req, next) => new CarController(res, req, next).findById(),
+  (req, res, next) => carController.findById(req, res, next),
 );
 
 router.put(
   '/:id',
   validateId,
   ValidateCar,
-  (req, res, next) => new CarController(req, res, next).updateById(),
+  (req, res) => carController.updateById(req, res),
 );
 
 router
@@ -31,6 +35,6 @@ router
     '/:id',
     validateId,
     ValidateCar,
-    (req, res, next) => new CarController(req, res, next).excludeById(),
+    (req, res) => carController.excludeById(req, res),
   );
 export default router;
