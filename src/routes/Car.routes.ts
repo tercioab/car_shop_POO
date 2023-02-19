@@ -3,10 +3,12 @@ import CarController from '../Controllers/Car.controller';
 import validateId from '../middlewares/id.validate';
 import ValidateCar from '../middlewares/car.validate';
 import CarService from '../Services/car.Service';
+import CarODM from '../Models/CarODM';
 
 const router = Router();
 
-const carService = new CarService();
+const carODM = new CarODM();
+const carService = new CarService(carODM);
 const carController = new CarController(carService);
 
 router.post(

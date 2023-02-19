@@ -1,4 +1,4 @@
-import MotorcycleDomain from '../../../src/Domains/Motorcycle.domains';
+import MotorcycleDomain from '../../../src/Domains/Motorcycle';
 
 const Input = {
   model: 'Honda Cb 600f Hornet',
