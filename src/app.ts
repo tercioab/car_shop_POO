@@ -1,6 +1,6 @@
 import express from 'express';
-import carRouter from './routers/Car.router';
-import motocicleRouter from './routers/Motorcycle.router';
+import carRouter from './routes/Car.routes';
+import motocicleRouter from './routes/Motorcycle.routes';
 
 const app = express();
 app.use(express.json());
