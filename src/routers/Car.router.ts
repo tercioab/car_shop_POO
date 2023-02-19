@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import CarController from '../Controllers/CarController';
+import CarController from '../Controllers/Car.controller';
 import validateId from '../middlewares/id.validate';
 import ValidateCar from '../middlewares/car.validate';
 

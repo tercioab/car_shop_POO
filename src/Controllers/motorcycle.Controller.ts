@@ -1,28 +1,26 @@
 import { Request, Response, NextFunction } from 'express';
-import ICar from '../Interfaces/ICar';
-import CarService from '../Services/CarService';
+import IMotocile from '../Interfaces/IMotorcycle';
+import MotorcycleService from '../Services/motorcycle.Service';
 
-export default class CarController {
+export default class MotorcycleController {
   private _req: Request;
   private _res: Response;
   private _next: NextFunction;
-  private _service: CarService;
-  ERROR_MESSAGE: string;
-
+  private _service: MotorcycleService;
+    
   constructor(req: Request, res: Response, next: NextFunction) {
     this._req = req;
     this._res = res;
     this._next = next;
-    this._service = new CarService();
-    this.ERROR_MESSAGE = 'Car not found';
-  }
-
+    this._service = new MotorcycleService();
+  } 
+    
   public async create() {
-    const car: ICar = this._req.body;
-
+    const Motorcycle: IMotocile = this._req.body;
+    
     try {
-      const newCar = await this._service.create(car);
-      return this._res.status(201).json(newCar);
+      const newMotorcycle = await this._service.create(Motorcycle);
+      return this._res.status(201).json(newMotorcycle);
     } catch (e) {
       this._next(e);
     }
@@ -30,8 +28,8 @@ export default class CarController {
 
   public async findAll() {
     try {
-      const allCars = await this._service.findAll();
-      return this._res.status(200).json(allCars);
+      const allMotorcycle = await this._service.findAll();
+      return this._res.status(200).json(allMotorcycle);
     } catch (e) {
       this._next(e);
     }
@@ -40,8 +38,8 @@ export default class CarController {
   public async findById() {
     try {
       const { id } = this._req.params;
-      const car = await this._service.findById(id);
-      return this._res.status(200).json(car);
+      const Motorcycle = await this._service.findById(id);      
+      return this._res.status(200).json(Motorcycle);
     } catch (e) {
       this._next(e);
     }
@@ -50,8 +48,8 @@ export default class CarController {
   public async updateById() {
     const { id } = this._req.params;
     const { body } = this._req;
-    const car = await this._service.updateById(id, body);
-    return this._res.status(200).json(car);
+    const Motorcycle = await this._service.updateById(id, body);
+    return this._res.status(200).json(Motorcycle);
   }
 
   public async excludeById() {

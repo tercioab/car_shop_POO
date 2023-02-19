@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import CarService from '../Services/CarService';
+import CarService from '../Services/car.Service';
 
 export default async function ValidateCar(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;

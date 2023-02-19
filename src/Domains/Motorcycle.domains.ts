@@ -1,5 +1,5 @@
 import IMotocile from '../Interfaces/IMotorcycle';
-import Veicle from './Vehicle';
+import Veicle from './Vehicle.domains';
 
 export default class Motorcycle extends Veicle {
   private category: string;

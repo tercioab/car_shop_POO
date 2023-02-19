@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import MotorcycleService from '../Services/MotorcycleService';
+import MotorcycleService from '../Services/motorcycle.Service';
 
 export default async function ValidateMotorcycle(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;

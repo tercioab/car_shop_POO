@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { Model } from 'mongoose';
-import CarService from '../../../src/Services/CarService';
+import CarService from '../../../src/Services/car.Service';
 import carMocks from '../mocks/car.mocks';
 
 describe('teste car service', function () {

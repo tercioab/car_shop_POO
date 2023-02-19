@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import MotorcycleController from '../Controllers/MotorcycleController';
+import MotorcycleController from '../Controllers/motorcycle.Controller';
 import validateId from '../middlewares/id.validate';
 import ValidateMotorcycle from '../middlewares/Motorcycle.validate';
 
