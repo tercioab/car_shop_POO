@@ -1,9 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import MotorcycleService from '../Services/motorcycle.Service';
+import MotorcycleODM from '../Models/MotorcycleODM';
 
 export default async function ValidateMotorcycle(req: Request, res: Response, next: NextFunction) {
   const { id } = req.params;
-  const car = await new MotorcycleService().findById(id);
+  const motorcycleODM = new MotorcycleODM();
+  const car = await new MotorcycleService(motorcycleODM).findById(id);
   if (!car) {
     return res.status(404).json({ message: 'Motorcycle not found' });
   } next();

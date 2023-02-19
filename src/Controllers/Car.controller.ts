@@ -2,11 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import CarService from '../Services/car.Service';
 
 export default class CarController {
-  ERROR_MESSAGE: string;
-
-  constructor(private service: CarService) {
-    this.ERROR_MESSAGE = 'Car not found';
-  }
+  constructor(private service: CarService) {}
 
   public async create(req: Request, res: Response, next: NextFunction) {
     const car = req.body;
