@@ -1,30 +1,30 @@
 import { model, Model, models, Schema } from 'mongoose';
 
 export default abstract class AbstractODM<T> {
-  protected _model: Model<T>;
-  protected _schema: Schema;
-  protected _modelName: string;
+  protected model: Model<T>;
+  protected schema: Schema;
+  protected modelName: string;
 
   constructor(schema: Schema, modelName: string) {
-    this._schema = schema;
-    this._modelName = modelName;
-    this._model = models[this._modelName] || model(this._modelName, this._schema);
+    this.schema = schema;
+    this.modelName = modelName;
+    this.model = models[this.modelName] || model(this.modelName, this.schema);
   }
 
   public async create(obj: T): Promise<T> {
-    return this._model.create({ ...obj });
+    return this.model.create({ ...obj });
   }
 
   public async findAll(): Promise<T[]> {
-    return this._model.find({});
+    return this.model.find({});
   }
 
   public async findById(id: string) {
-    return this._model.findById(id);
+    return this.model.findById(id);
   } 
   
   public async updateById(id: string, veicle: Partial<T>) {
-    return this._model.findByIdAndUpdate(
+    return this.model.findByIdAndUpdate(
       { _id: id },
       { ...veicle },
       { new: true },
@@ -32,6 +32,6 @@ export default abstract class AbstractODM<T> {
   }
 
   public async excludeById(id: string) {
-    return this._model.deleteOne({ id });
+    return this.model.deleteOne({ id });
   }
 }
