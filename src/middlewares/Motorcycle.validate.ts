@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import MotorcycleService from '../Domains/repository/motorcycle.repository';
+import MotorcycleService from '../Domains/repository/motorcycle.';
 import MotorcycleODM from '../Models/MotorcycleODM';
 
 export default async function ValidateMotorcycle(req: Request, res: Response, next: NextFunction) {

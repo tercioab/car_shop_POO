@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import CarService from '../Domains/repository/car.repository';
+import CarService from '../Services/car.Service';
 
 export default class CarController {
   constructor(private service: CarService) {}

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import CarService from '../Domains/repository/car.repository';
+import CarService from '../Services/car.Service';
 import CarODM from '../Models/CarODM';
 
 export default async function ValidateCar(req: Request, res: Response, next: NextFunction) {

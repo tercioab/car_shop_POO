@@ -1,5 +1,5 @@
 import CarController from '../../Controllers/Car.controller';
-import CarService from '../repository/car.repository';
+import CarService from '../../Services/car.Service';
 import CarODM from '../../Models/CarODM';
 
 const carODM = new CarODM();

@@ -1,6 +1,6 @@
-import CarDomains from '../entities/Car';
-import ICar from '../../Interfaces/ICar';
-import IVehiclePersistence from './IVehicle.persistence';
+import CarDomains from '../Domains/entities/Car';
+import ICar from '../Interfaces/ICar';
+import IVehiclePersistence from '../Domains/repository/IVehicle.persistence';
 
 export default class CarService {
   constructor(private carODM: IVehiclePersistence) {}

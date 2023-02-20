@@ -1,6 +1,6 @@
-import IMotorcycle from '../../Interfaces/IMotorcycle';
-import MotorcycleDomains from '../entities/Motorcycle';
-import IVehiclePersistence from './IVehicle.persistence';
+import IMotorcycle from '../Interfaces/IMotorcycle';
+import MotorcycleDomains from '../Domains/entities/Motorcycle';
+import IVehiclePersistence from '../Domains/repository/IVehicle.persistence';
 
 export default class MotorcycleService {
   constructor(private motorcycleODM: IVehiclePersistence) {}
