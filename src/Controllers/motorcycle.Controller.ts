@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import IMotocile from '../Interfaces/IMotorcycle';
-import MotorcycleService from '../Services/motorcycle.Service';
+import MotorcycleService from '../Domains/repository/motorcycle.repository';
 
 export default class MotorcycleController {
   constructor(private service: MotorcycleService) {} 

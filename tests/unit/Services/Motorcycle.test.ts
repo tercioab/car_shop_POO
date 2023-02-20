@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import { Model } from 'mongoose';
-import MotocicleService from '../../../src/Services/motorcycle.Service';
+import MotocicleService from '../../../src/Domains/repository/motorcycle.repository';
 import motorcycleMocks from '../mocks/motorcycle.mocks';
 import MotocycleODM from '../../../src/Models/MotorcycleODM';
 

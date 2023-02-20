@@ -1,5 +1,5 @@
 import MotorcycleController from '../../Controllers/motorcycle.Controller';
-import MotorcycleService from '../../Services/motorcycle.Service';
+import MotorcycleService from '../repository/motorcycle.repository';
 import MotorcycleODM from '../../Models/MotorcycleODM';
 
 const motorcycleODM = new MotorcycleODM();

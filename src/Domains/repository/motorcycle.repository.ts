@@ -1,9 +1,9 @@
-import IMotorcycle from '../Interfaces/IMotorcycle';
-import MotorcycleODM from '../Models/MotorcycleODM';
-import MotorcycleDomains from '../Domains/entities/Motorcycle';
+import IMotorcycle from '../../Interfaces/IMotorcycle';
+import MotorcycleDomains from '../entities/Motorcycle';
+import IVehiclePersistence from './IVehicle.persistence';
 
 export default class MotorcycleService {
-  constructor(private motorcycleODM: MotorcycleODM) {}
+  constructor(private motorcycleODM: IVehiclePersistence) {}
 
   public createVehicleDomain(motorcycle: IMotorcycle) {
     if (motorcycle) {
