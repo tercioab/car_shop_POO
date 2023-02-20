@@ -9,5 +9,5 @@ export default class VehicleRepository<T extends Partial<any>> {
   public findById = async (id: string) => this.IPersistence.findById(id);
   public updateById = async (id: string, vehicle: T) => this.IPersistence.updateById(id, vehicle);
   
-  public excludeById = async (id:string) => { await this.IPersistence.excludeById(id); };
+  public excludeById = async (id:string) => this.IPersistence.excludeById(id); ;
 }
