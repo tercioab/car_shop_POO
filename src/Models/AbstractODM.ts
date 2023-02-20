@@ -27,7 +27,7 @@ export default abstract class AbstractODM<T> {
     return this.model.findByIdAndUpdate(
       { _id: id },
       { ...veicle },
-      { new: true },
+      { new: true }, 
     );
   }
 
