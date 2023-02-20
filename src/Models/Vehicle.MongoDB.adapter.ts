@@ -1,6 +1,7 @@
 import { model, Model, models, Schema } from 'mongoose';
+import IVehiclePersistence from '../Domains/repository/IVehicle.persistence';
 
-export default abstract class AbstractODM<T> {
+export default abstract class AbstractODM<T> implements IVehiclePersistence {
   protected model: Model<T>;
   protected schema: Schema;
   protected modelName: string;
