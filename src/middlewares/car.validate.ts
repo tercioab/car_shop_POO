@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import CarService from '../Services/car.Service';
-import CarODM from '../Models/CarODM';
+import CarODM from '../Models/Car.mongoDB';
 import VehicleRepository from '../Domains/repository/Vehicle.repository';
 
 export default async function ValidateCar(req: Request, res: Response, next: NextFunction) {

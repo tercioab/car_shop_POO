@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import MotorcycleService from '../Services/motorcycle.Service';
-import MotorcycleODM from '../Models/MotorcycleODM';
+import MotorcycleODM from '../Models/Motorcycle.mongoDB';
 import VehicleRepository from '../Domains/repository/Vehicle.repository';
 
 export default async function ValidateMotorcycle(req: Request, res: Response, next: NextFunction) {

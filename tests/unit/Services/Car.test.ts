@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import { Model } from 'mongoose';
 import CarService from '../../../src/Services/car.Service';
 import carMocks from '../mocks/car.mocks';
-import CarODM from '../../../src/Models/CarODM';
+import CarODM from '../../../src/Models/Car.mongoDB';
 import VehicleRepository from '../../../src/Domains/repository/Vehicle.repository';
 
 describe('teste car service', function () {
