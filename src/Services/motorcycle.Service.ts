@@ -1,6 +1,6 @@
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcycleODM from '../Models/MotorcycleODM';
-import MotorcycleDomains from '../Domains/Motorcycle';
+import MotorcycleDomains from '../Domains/entities/Motorcycle';
 
 export default class MotorcycleService {
   constructor(private motorcycleODM: MotorcycleODM) {}

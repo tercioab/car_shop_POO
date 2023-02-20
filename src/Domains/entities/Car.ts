@@ -1,4 +1,4 @@
-import ICar from '../Interfaces/ICar';
+import ICar from '../../Interfaces/ICar';
 import Veicle from './Vehicle';
 
 export default class Car extends Veicle {
