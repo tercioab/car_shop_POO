@@ -1,9 +1,9 @@
 import IMotorcycle from '../Interfaces/IMotorcycle';
 import MotorcycleDomains from '../Domains/entities/Motorcycle';
-import IVehiclePersistence from '../Domains/repository/IVehicle.persistence';
+import VehicleRepository from '../Domains/repository/Vehicle.repository';
 
 export default class MotorcycleService {
-  constructor(private IPersistence: IVehiclePersistence) {}
+  constructor(private Repository: VehicleRepository<IMotorcycle>) {}
 
   public createVehicleDomain(motorcycle: IMotorcycle) {
     if (motorcycle) {
@@ -12,27 +12,27 @@ export default class MotorcycleService {
   }
     
   public async create(car: IMotorcycle) {
-    const newMotorcycle = await this.IPersistence.create(car);
+    const newMotorcycle = await this.Repository.create(car);
     return this.createVehicleDomain(newMotorcycle);
   }
 
   public async findAll() {
-    const allMotorcycle = await this.IPersistence.findAll();
+    const allMotorcycle = await this.Repository.findAll();
     return allMotorcycle
       .map((Motorcycle) => this.createVehicleDomain(Motorcycle));
   }
 
   public async findById(id: string) {
-    const Motorcycle = await this.IPersistence.findById(id);
+    const Motorcycle = await this.Repository.findById(id);
     if (Motorcycle) { return this.createVehicleDomain(Motorcycle); }
   }
 
   public async updateById(id: string, veicle: IMotorcycle) {
-    const motorcycle = await this.IPersistence.updateById(id, veicle);
+    const motorcycle = await this.Repository.updateById(id, veicle);
     if (motorcycle) { return this.createVehicleDomain(motorcycle); }
   }
 
   public async excludeById(id: string) {
-    return this.IPersistence.excludeById(id);
+    return this.Repository.excludeById(id);
   }
 }

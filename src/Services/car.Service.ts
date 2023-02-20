@@ -1,6 +1,5 @@
 import CarDomains from '../Domains/entities/Car';
 import ICar from '../Interfaces/ICar';
-// import IVehiclePersistence from '../Domains/repository/IVehicle.persistence';
 
 import VehicleRepository from '../Domains/repository/Vehicle.repository';
 
