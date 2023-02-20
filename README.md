@@ -1,3 +1,5 @@
+# README EM CONSTRUÇÃO 
+
 # Linguagem obíqua
 
 
