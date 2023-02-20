@@ -1,9 +1,10 @@
 import CarDomains from '../Domains/entities/Car';
 import ICar from '../Interfaces/ICar';
-import CarODM from '../Models/CarODM';
+// import CarODM from '../Models/CarODM';
+import IVehiclePersistence from '../Domains/repository/IVehicle.persistence';
 
 export default class CarService {
-  constructor(private carODM: CarODM) {}
+  constructor(private carODM: IVehiclePersistence) {}
   public createVehicleDomain(car: ICar) {
     if (car) {
       return new CarDomains(car);
