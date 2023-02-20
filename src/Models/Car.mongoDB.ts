@@ -1,5 +1,5 @@
 import { Schema } from 'mongoose';
-import AbstractODM from './Vehicle.MongoDB.adapter';
+import AbstractODM from './abstractODM';
 import ICar from '../Interfaces/ICar';
 
 export default class CarODM extends AbstractODM<ICar> {
