@@ -1,4 +1,4 @@
-import CarDomain from '../../../src/Domains/entities/Car';
+import CarDomain from '../../../src/Domains/Car';
 
 const Input = {
   model: 'rari',
