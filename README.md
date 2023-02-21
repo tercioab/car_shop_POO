@@ -3,7 +3,7 @@
 
 ## Descrição
 
-Este é um projeto de uma loja de veículos que consiste em duas entidades principais: carros e motocicletas. Cada entidade possui sua própria API para criação, atualização, remoção e busca. O projeto utiliza Node.js e Express para construir as APIs, bem como o Mongoose como ODM para lidar com o banco de dados MongoDB. Além disso, o projeto usa o Jest para testes de unidade, o Mocha para testes de integração e o Supertest para testes de API.
+Este é um projeto de uma loja de veículos que consiste em duas entidades principais: carros e motocicletas. Cada entidade possui sua própria API para criação, atualização, remoção e busca. O projeto utiliza Node.js e Express para construir as APIs, bem como o Mongoose como ODM para lidar com o banco de dados MongoDB. Além disso, o projeto usa o mocha e chai para testes unitarios fazendo stubs com sinon.
 
 ---
 
